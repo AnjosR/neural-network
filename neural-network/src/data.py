@@ -21,12 +21,9 @@ def load_dataset(path: Path | str = DATA_FILE):
         print(f"Erro: O arquivo {path} não foi encontrado.")
 
     amostras = []
-    for numero, linha in enumerate(linhas[1:], start=1):
-        itens = linha.split()
-        print(f"linha {numero} = {itens}")
+    for contar_linha, dados in enumerate(linhas[1:], start=1):
+        itens = [float(valor) for valor in dados.split()]
+        print(f"linha {contar_linha} = {itens}")
         amostras.append(itens)
 
     return amostras
-
-
-load_dataset()

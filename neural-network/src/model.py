@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-
 class NeuralNetwork:
     """Esqueleto da rede neural.
 
