@@ -2,3 +2,4 @@ novo_peso = atual_peso + 0,01 * (d - y) * x(n)
 
 d = -1 ou 1 (escolha radômica)
 y = saída que deu da função de ativação
+x = é o float que será multiplicado pelo peso
