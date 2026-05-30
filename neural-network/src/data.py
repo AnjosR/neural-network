@@ -1,21 +1,32 @@
-"""Carregamento e parsing do conjunto de dados de treinamento."""
-
 from __future__ import annotations
 
 from pathlib import Path
 
 DATA_FILE = (
-    Path(__file__).resolve().parents[2]
+    Path(__file__).resolve().parents[1]
     / "docs"
-    / "Desafio_Cerebral_-_Dados_de_Treinamento.txt"
+    / "desafio_cerebral.txt"
 )
 
 
 def load_dataset(path: Path | str = DATA_FILE):
-    """Lê o arquivo de treinamento e retorna as entradas e a saída desejada.
-
+    """Lê o arquivo de treinamento e retorna as entradas e a saída desejada.\n
     O arquivo possui um cabeçalho (``x1 x2 x3 d``) seguido das amostras.
-
-    TODO: implementar a leitura.
     """
-    raise NotImplementedError
+
+    try:
+        with open(path, "r", encoding="utf-8") as arquivo:
+            linhas = arquivo.readlines()
+    except FileNotFoundError:
+        print(f"Erro: O arquivo {path} não foi encontrado.")
+
+    amostras = []
+    for numero, linha in enumerate(linhas[1:], start=1):
+        itens = linha.split()
+        print(f"linha {numero} = {itens}")
+        amostras.append(itens)
+
+    return amostras
+
+
+load_dataset()
