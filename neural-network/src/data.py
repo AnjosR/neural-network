@@ -9,10 +9,8 @@ DATA_FILE = (
 )
 
 
-def load_dataset(path: Path | str = DATA_FILE):
-    """Lê o arquivo de treinamento e retorna as entradas e a saída desejada.\n
-    O arquivo possui um cabeçalho (``x1 x2 x3 d``) seguido das amostras.
-    """
+def carregar_dataset(path: Path | str = DATA_FILE):
+    """Lê o arquivo de treinamento e retorna as entradas e a saída desejada.\n"""
 
     try:
         with open(path, "r", encoding="utf-8") as arquivo:
@@ -20,7 +18,7 @@ def load_dataset(path: Path | str = DATA_FILE):
     except FileNotFoundError:
         print(f"Erro: O arquivo {path} não foi encontrado.")
 
-    amostras = []
+    amostras: list[list[float]] = []
     for dados in linhas[1:]:
         itens = [float(valor) for valor in dados.split()]
         amostras.append(itens)
