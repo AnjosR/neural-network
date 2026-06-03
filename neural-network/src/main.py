@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from data import carregar_dataset
-from model import prever, preparar_entrada
 from train import treinar
 
 
@@ -13,15 +12,17 @@ def formatar_pesos(pesos: list[float]) -> str:
 
 
 def main() -> None:
-    amostras = carregar_dataset()
-    resultado = treinar(amostras)
 
-    if resultado.convergiu:
-        print(f"Rede treinada em {resultado.epocas} época(s).")
-    else:
-        print(f"A rede não convergiu após {resultado.epocas} épocas.")
+    for _ in range(5):
+        amostras = carregar_dataset()
+        resultado = treinar(amostras)
 
-    print(f"Pesos finais: {formatar_pesos(resultado.pesos)}\n")
+        if resultado.convergiu:
+            print(f"Rede treinada em {resultado.epocas} época(s).")
+        else:
+            print(f"A rede não convergiu após {resultado.epocas} épocas.")
+
+        print(f"Pesos finais: {formatar_pesos(resultado.pesos)}\n")
 
 
 if __name__ == "__main__":

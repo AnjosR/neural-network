@@ -18,9 +18,10 @@ neural-network/
 │       ├── __init__.py
 │       ├── data.py       # carregamento/parse do dataset
 │       ├── model.py      # implementação da rede
+│       ├── main.py               # ponto de entrada
 │       └── train.py      # laço de treinamento
 ├── tests/
-├── main.py               # ponto de entrada
+
 ├── requirements.txt
 └── README.md
 ```
